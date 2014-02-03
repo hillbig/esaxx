@@ -1,23 +1,23 @@
-VERSION= '0.0.4'
+VERSION= '0.0.5'
 APPNAME= 'esaxx'
 
 srcdir= '.'
 blddir= 'bin'
 
-def set_options(ctx):
-  ctx.tool_options('compiler_cxx')
-    
-def configure(ctx):
-  ctx.check_tool('compiler_cxx')
-  ctx.env.CXXFLAGS += ['-O2', '-Wall', '-g']
+def options(opt):
+  opt.load('compiler_cxx')
+
+def configure(conf):
+  conf.env.CXXFLAGS += ['-O2', '-Wall', '-g']
+  conf.load('compiler_cxx')
 
 def build(bld):
-  task1= bld(features='cxx cprogram',
-       source       = 'enumSubstring.cpp',
-       name         = 'enum_substring',
-       target       = 'enum_substring',
-       includes     = '.')
+  bld.program(
+    source = 'enumSubstring.cpp',
+    target = 'enumSubstring'
+  )
 
 def dist_hook():
   import os
+  os.remove('upload.sh')
   os.remove('googlecode_upload.py')
