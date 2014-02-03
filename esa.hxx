@@ -62,7 +62,7 @@ index_type suffixtree(string_type T, sarray_type SA, sarray_type L, sarray_type 
   for (index_type i = 0; i < n; ++i){
     H[i] = PLCP[SA[i]];
   }
-  H[0] = -1;
+  H[0] = 0;
 
   std::vector<std::pair<index_type, index_type> > S;
   S.push_back(std::make_pair((index_type)-1, (index_type)-1));
