@@ -71,7 +71,7 @@ index_type suffixtree(string_type T, sarray_type SA, sarray_type L, sarray_type 
     std::pair<index_type, index_type> cur (i, (i == n) ? -1 : H[i]);
     std::pair<index_type, index_type> cand(S.back());
     while (cand.second > cur.second){
-      if (i - cand.first > 1){
+      if (i - cand.first > 1 || (i == n && cand.second == 0)){
 	L[nodeNum] = cand.first;
 	R[nodeNum] = i;
 	D[nodeNum] = cand.second;

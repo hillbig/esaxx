@@ -97,4 +97,20 @@ TEST(esa, one_alpha){
               vector<int>(DExpect, DExpect+2)); 
 }
 
+TEST(esa, one_char){
+  vector<int> T;
+  T.push_back('a');    
+  ESATester esa_t(T, 0x100);
+  int nodeNum = 1;
+  int SAExpect[1] = {0};
+  int LExpect[1] = {0};
+  int RExpect[1] = {1};
+  int DExpect[1] = {0};
+  esa_t.check(nodeNum,
+              vector<int>(SAExpect, SAExpect+1),
+              vector<int>(LExpect, LExpect+1),
+              vector<int>(RExpect, RExpect+1),
+              vector<int>(DExpect, DExpect+1)); 
+}
+
 }// esa_test
